@@ -1,67 +1,67 @@
 /*-----------------------------Header Section---------------------------*/
-.header{
+.header {
   width: 100%;
-  height: 100px;    
-  display: flex;  
-  align-items: center;       
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
-header{
-  display: flex;    
-  width: 100%;    
-  margin-left: 3%; 
-  margin-right: 7%;      
+header {
+  display: flex;
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
   align-content: center;
   justify-content: space-between;
 }
 
-.headerLeft{            
+.headerLeft {
   display: flex;
   align-items: center;
 }
 
-.headerLeft > a{  
+.headerLeft>a {
   text-decoration: none;
-  color: black;          
+  color: black;
   font-family: Montserrat;
-  font-size: 34px;    
+  font-size: 34px;
   font-weight: 700;
 }
 
-.headerMid{    
+.headerMid {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 80px;
 }
 
-.headerMid > a {
+.headerMid>a {
   text-decoration: none;
   color: black;
   font-family: Poppins;
   font-size: 16px;
-  font-weight: 500;    
+  font-weight: 500;
 }
 
-.headerMid > a:hover {
+.headerMid>a:hover {
   color: #B88E2F;
   transition: width 0.9s;
 }
 
-.headerRight{    
+.headerRight {
   display: flex;
-  align-items: center;    
+  align-items: center;
   gap: 33px;
 }
 
-.headerRight > a {
+.headerRight>a {
   text-decoration: none;
   color: black;
 }
 
-.headerIcon{    
+.headerIcon {
   cursor: pointer;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
 }
 
 .headerIcon:hover svg,
@@ -70,9 +70,78 @@ header{
   transition: width 0.9s;
 }
 
-.headerLogo{
+.headerLogo {
   width: 55px;
   height: 60px;
 }
 
 /*-----------------------------Header Section End---------------------------*/
+
+/*-----------------------------PageTitle Section---------------------------*/
+.pageTitle {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 316px;
+  background-size: cover;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pageTitle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/images/backgroundTable.jpg');
+  /* Substitua pelo URL da sua imagem */
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  /* Ajuste o valor do blur conforme necessário */
+  z-index: 1;
+}
+
+.pageTitleContent {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+
+}
+
+.pageTitleTop>h1 {
+  font-family: Poppins;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 72px;
+}
+
+.pageTitleBot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageTitleBot > p {
+  font-family: Poppins;  
+  line-height: 24px;
+  text-align: left;
+}
+
+.pageTitlePath{
+  font-weight: 500;
+  font-size: 16px;  
+}
+
+.pageTitleSymb{
+  font-size: 20px;  
+}
+
+.pageTitleCurrent{
+  font-weight: 300;
+  font-size: 16px;  
+}
+
+/*-----------------------------PageTitle Section End---------------------------*/
