@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
+import { ProductTemplate, productArray } from "./Product";
 import React from "react";
 
-function ProductGrid() {
+function ProductGrid() {  
+
+
   //Filter Hooks and Handlers
   const [showOptions, setShowOptions] = React.useState(false);
   const [selectedFilter, setSelectedFilter] = React.useState("");
@@ -36,13 +39,13 @@ function ProductGrid() {
   };
 
   const handleShowValueBlur = () => {
-    if (showValue == "") {
+    if (showValue == "" || showValue == 0) {
       setShowValue(16);
     }
   };
 
   return (
-    <div>
+    <div className="grid">
       <div className="gridControler">
         <div className="gridControlerContent">
           <div className="gccLeft">
@@ -81,7 +84,14 @@ function ProductGrid() {
           </div>
         </div>
       </div>
-      <div className="gridContent"></div>
+      <div className="gridContent">
+        <ProductTemplate props={productArray[0]} />
+        <ProductTemplate props={productArray[1]} />
+        <ProductTemplate props={productArray[2]} />
+        <ProductTemplate props={productArray[3]} />
+        <ProductTemplate props={productArray[0]} />        
+      </div>
+
       <div className="gridPageControler"></div>
     </div>
   );
