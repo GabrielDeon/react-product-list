@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   const [email, setEmail] = React.useState("");
-  const [emailError, setEmailError] = React.useState("");
+  const [emailStatus, setEmailStatus] = React.useState("");
 
   function validateEmail($email) {
     var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -17,9 +17,9 @@ function Footer() {
     event.preventDefault();
 
     if (validateEmail(email)) {
-      setEmailError("");
+      setEmailStatus("sucess");
     } else {
-      setEmailError("Email inválido!");
+      setEmailStatus("error");
     }
   };
 
@@ -75,9 +75,9 @@ function Footer() {
                   name="email"
                   value={email}
                   onChange={handleEmailChange}
-                ></input>
-                {emailError && <span className="error">{emailError}</span>}
+                ></input>                
                 <button type="submit">SUBSCRIBE</button>
+                {emailStatus && <span className={emailStatus}> {emailStatus == "sucess"? "Email subscribed!": "Invalid Email!" }  </span>}
               </form>
             </div>
           </div>

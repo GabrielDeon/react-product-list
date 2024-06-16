@@ -305,6 +305,7 @@ header {
   border-bottom: 1px solid black;
   margin-right: 11px;
   line-height: 21px;
+  font-size: 16px;
 }
 
 .fctNewsletter button{  
@@ -324,5 +325,18 @@ header {
   border-bottom: 1px solid black;
 }
 
+.error {
+  font-size: 14px;
+  display: block;  
+  color: red;  
+  margin-top: 5px;
+}
+
+.sucess {
+  font-size: 14px;
+  display: block;  
+  color: rgb(37, 142, 37);  
+  margin-top: 5px;
+}
 
 /*-----------------------------Footer Section End---------------------------*/
