@@ -3,6 +3,7 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
 function ProductGrid() {
+  //Filter Hooks and Handlers
   const [showOptions, setShowOptions] = React.useState(false);
   const [selectedFilter, setSelectedFilter] = React.useState("");
 
@@ -13,6 +14,31 @@ function ProductGrid() {
   const handleOptionClick = (filter) => {
     setSelectedFilter(filter);
     setShowOptions(false);
+  };
+
+  //Show Elements Hooks and Handlers
+  const [showValue, setShowValue] = React.useState(16);
+
+  const handleShowValueChange = (event) => {
+    const eventValue = event.target.value;
+    if (eventValue.length <= 2) {
+      setShowValue(eventValue);
+    }
+  };
+
+  const handleShowValueKP = (event) => {
+    const key = event.key;
+    const newValue = showValue + key;
+
+    if (newValue.length > 2) {
+      event.preventDefault();
+    }
+  };
+
+  const handleShowValueBlur = () => {
+    if (showValue == "") {
+      setShowValue(16);
+    }
   };
 
   return (
@@ -39,10 +65,19 @@ function ProductGrid() {
                 </div>
               )}
             </div>
-
             <div className="filterInfo">
               <p>Showing 1-16 of 32 results</p>
             </div>
+          </div>
+          <div className="gccRight">
+            <p className="filterSpecs">Show</p>
+            <input
+              type="number"
+              value={showValue}
+              onChange={handleShowValueChange}
+              onKeyPress={handleShowValueKP}
+              onBlur={handleShowValueBlur}
+            ></input>
           </div>
         </div>
       </div>

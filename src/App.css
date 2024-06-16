@@ -155,8 +155,12 @@ header {
 }
 
 .gridControlerContent{
+  width: 100%;
   display: flex;
   margin: 0 7% 0 7%;
+  height: 37px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .gridContent {
@@ -181,6 +185,7 @@ header {
 }
 
 .filter-options > button {  
+  font-family: Poppins;
   font-size: 15px;
   padding: 2px;
   text-align: left;
@@ -221,8 +226,48 @@ header {
   display: inline-block;
 }
 
+.filterInfo{
+  margin-left: 30px;
+  padding-left: 36px;
+  border-left: 2px solid #9F9F9F;    
+}
 
+.filterInfo > p{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+}
 
+.gccRight{
+  display: flex;
+  align-items: center;
+}
+
+.gccRight > p {
+  margin-right: 17px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.gccRight > input[type="number"] {
+  font-family: Poppins;
+  font-size: 20px;
+  color: #9F9F9F;
+  border: none;  
+  width: 25px;  
+  padding: 12.5px 15px;
+}
+
+.gccRight > input[type="number"]:focus {
+  outline: none;
+}
 /*-----------------------------Grid Section End---------------------------*/
 
 /*-----------------------------Info Quality Section---------------------------*/
