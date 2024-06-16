@@ -109,7 +109,6 @@ header {
   position: relative;
   z-index: 2;
   display: inline-block;
-
 }
 
 .pageTitleTop>h1 {
@@ -151,6 +150,13 @@ header {
   width: 100%;
   height: 100px;
   background-color: #F9F1E7;
+  display: flex;
+  align-items: center;
+}
+
+.gridControlerContent{
+  display: flex;
+  margin: 0 7% 0 7%;
 }
 
 .gridContent {
@@ -163,6 +169,59 @@ header {
   height: 100px;
   background-color: #F9F1E7;
 }
+
+.filter-options {
+  position: absolute;      
+  background-color: rgb(144, 142, 142);
+  background-color: #f9f1e7c6;
+  padding: 5px;
+  left: -5px;
+  border-radius: 10px;    
+  z-index: 1000;
+}
+
+.filter-options > button {  
+  font-size: 15px;
+  padding: 2px;
+  text-align: left;
+  border: none;
+  border-bottom: 2px solid #B88E2F;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+
+.filter-options > button:hover {
+  background-color: #b1b0b0;
+}
+
+.filterButton {
+  display: flex;  
+}
+
+.filterButton, .filterIcon{
+  cursor: pointer;
+  height: 23px;  
+  border: none;
+  font-weight: 100;
+  margin-right: 12px;
+}
+
+.filterSpecs{
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 400;    
+}
+
+.gccLeft{
+  display: flex;
+}
+
+.gccLeftFilter{
+  position: relative;
+  display: inline-block;
+}
+
+
 
 /*-----------------------------Grid Section End---------------------------*/
 
@@ -217,49 +276,46 @@ header {
 .footer {
   bottom: 0;
   width: 100%;
-  display: flex; 
+  display: flex;
   justify-content: center;
   background: #FFFFFF;
 
 }
 
 .footerContent {
-  margin: 48px 7% 38px 7%;  
-  width: 100%;    
+  margin: 48px 7% 38px 7%;
+  width: 100%;
   display: block;
 }
 
 .footerContentTop {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 
-  
+
 }
 
-.footerContentBot {
-  
-}
-.footerContentBot > p{
+.footerContentBot>p {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   text-align: left;
-  color:#000000;  
+  color: #000000;
   margin-top: 83px;
 }
 
 .fctItens {
   width: 65%;
-  display: flex;  
-  justify-content: space-between;    
+  display: flex;
+  justify-content: space-between;
 }
 
-.fctItens  li {
+.fctItens li {
   margin-top: 45px;
 }
 
-.fctItens p{
+.fctItens p {
   font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
@@ -269,7 +325,8 @@ header {
   margin-bottom: 10px;
 }
 
-.fctItens ul, p {
+.fctItens ul,
+p {
   list-style-type: none;
   font-family: Poppins;
   font-size: 16px;
@@ -283,7 +340,7 @@ header {
   color: black;
 }
 
-.fctStreet > p{
+.fctStreet>p {
   margin-top: 50px;
   margin-left: 2px;
   max-width: 285px;
@@ -295,11 +352,11 @@ header {
   text-align: left;
 }
 
-.fctNewsletter{
+.fctNewsletter {
   margin-right: 15%;
 }
 
-.fctNewsletter input{
+.fctNewsletter input {
   margin-top: 34px;
   border: none;
   border-bottom: 1px solid black;
@@ -308,7 +365,7 @@ header {
   font-size: 16px;
 }
 
-.fctNewsletter button{  
+.fctNewsletter button {
   cursor: pointer;
   font-family: Poppins;
   font-size: 14px;
@@ -320,22 +377,24 @@ header {
   border-bottom: 1px solid black;
   margin-right: 11px;
 }
-.fctNewsletter input[type="text"]:focus{
-  outline: none; /* Ensure no outline on focus */
+
+.fctNewsletter input[type="text"]:focus {
+  outline: none;
+  /* Ensure no outline on focus */
   border-bottom: 1px solid black;
 }
 
 .error {
   font-size: 14px;
-  display: block;  
-  color: red;  
+  display: block;
+  color: red;
   margin-top: 5px;
 }
 
 .sucess {
   font-size: 14px;
-  display: block;  
-  color: rgb(37, 142, 37);  
+  display: block;
+  color: rgb(37, 142, 37);
   margin-top: 5px;
 }
 
