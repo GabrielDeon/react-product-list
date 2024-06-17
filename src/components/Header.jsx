@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faMagnifyingGlass, faCartShopping, faHeart} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faMagnifyingGlass, faCartShopping, faHeart, faBars} from '@fortawesome/free-solid-svg-icons'
 
 function Header() {
   return (
@@ -16,10 +16,12 @@ function Header() {
           <a href=''>Contact</a>
         </div>
         <div className='headerRight'>        
-          <a href=''><FontAwesomeIcon className='headerIcon' icon={faUser} /></a>
-          <a href=''><FontAwesomeIcon className='headerIcon' icon={faMagnifyingGlass} /></a>
-          <a href=''><FontAwesomeIcon className='headerIcon' icon={faHeart} /></a>
-          <a href=''><FontAwesomeIcon className='headerIcon' icon={faCartShopping} /></a>
+          <a href='' className='headerIcon'><FontAwesomeIcon icon={faUser} /></a>
+          <a href='' className='headerIcon'><FontAwesomeIcon icon={faMagnifyingGlass} /></a>
+          <a href='' className='headerIcon'><FontAwesomeIcon icon={faHeart} /></a>
+          <a href='' className='headerIcon'><FontAwesomeIcon icon={faCartShopping} /></a>
+          <a href='' className='headerIconBars'><FontAwesomeIcon icon={faBars} /></a>          
+          
         </div>
       </header>
     </div>
