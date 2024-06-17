@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { height, width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 import React from "react";
 import { ssrExportAllKey } from "vite/runtime";
@@ -356,19 +357,20 @@ const productArray = [
     true,
     ""
   ),
+  new productObject(
+    33,
+    "Respira",
+    "Outdoor bar table and stool",
+    "500.000",
+    "respiraImage",
+    0,
+    false,
+    ""
+  ),
 ];
 
 // eslint-disable-next-line react/prop-types
 function ProductTemplate({ props }) {
-  const productTag = {
-    height: "48px",
-    width: "48px",
-    borderRadius: "5%",
-    backGroundColor: "black",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
   let className = "productTag";
   let tagText = "";
 

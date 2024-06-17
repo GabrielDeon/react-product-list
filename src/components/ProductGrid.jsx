@@ -3,9 +3,7 @@ import { faSliders } from "@fortawesome/free-solid-svg-icons";
 import { ProductTemplate, productArray } from "./Product";
 import React from "react";
 
-function ProductGrid() {  
-
-
+function ProductGrid() {
   //Filter Hooks and Handlers
   const [showOptions, setShowOptions] = React.useState(false);
   const [selectedFilter, setSelectedFilter] = React.useState("");
@@ -20,27 +18,49 @@ function ProductGrid() {
   };
 
   //Show Elements Hooks and Handlers
-  const [showValue, setShowValue] = React.useState(16);
+  const [perPage, setPerPage] = React.useState(15);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const [totalPages, setTotalPages] = React.useState(Math.ceil(productArray.length / perPage));
+  const [endIndex, setEndIndex] = React.useState(currentPage * perPage);
 
-  const handleShowValueChange = (event) => {
-    const eventValue = event.target.value;
+  console.log("startIndex: " + ((currentPage - 1) * perPage + 1));
+  console.log("endIndex: " + (Math.min(endIndex, productArray.length)));  
+  
+  const currentItems = productArray.slice(((currentPage - 1) * perPage), (Math.min(endIndex, productArray.length)) );
+  console.log(currentItems);
+
+  React.useEffect(() => {
+    const tp = Math.ceil(productArray.length / perPage);
+    setTotalPages(tp);
+  }, [perPage]);
+
+  React.useEffect(() => {
+    setEndIndex(currentPage * perPage);
+  }, [currentPage, perPage]);
+
+  const handlePageClick = (pageIndex) => {
+    setCurrentPage(pageIndex);
+  };
+
+  const handlePerPageChange = (event) => {
+    const eventValue = parseInt(event.target.value) || 0;
     if (eventValue.length <= 2) {
-      setShowValue(eventValue);
+      setPerPage(eventValue);
     }
   };
 
-  const handleShowValueKP = (event) => {
+  const handlePerPageKP = (event) => {
     const key = event.key;
-    const newValue = showValue + key;
+    const newValue = perPage + key;
 
     if (newValue.length > 2) {
       event.preventDefault();
     }
   };
 
-  const handleShowValueBlur = () => {
-    if (showValue == "" || showValue == 0) {
-      setShowValue(16);
+  const handlePerPageBlur = () => {
+    if (perPage == "" || perPage == 0) {
+      setPerPage(16);
     }
   };
 
@@ -69,30 +89,54 @@ function ProductGrid() {
               )}
             </div>
             <div className="filterInfo">
-              <p>Showing 1-16 of 32 results</p>
+              <p>
+                Showing {(currentPage - 1) * perPage + 1}-
+                {Math.min(endIndex, productArray.length)} of{" "}
+                {productArray.length} results
+              </p>
             </div>
           </div>
           <div className="gccRight">
             <p className="filterSpecs">Show</p>
             <input
               type="number"
-              value={showValue}
-              onChange={handleShowValueChange}
-              onKeyPress={handleShowValueKP}
-              onBlur={handleShowValueBlur}
+              value={perPage}
+              onChange={handlePerPageChange}
+              onKeyPress={handlePerPageKP}
+              onBlur={handlePerPageBlur}
             ></input>
           </div>
         </div>
       </div>
       <div className="gridContent">
-        <ProductTemplate props={productArray[0]} />
-        <ProductTemplate props={productArray[1]} />
-        <ProductTemplate props={productArray[2]} />
-        <ProductTemplate props={productArray[3]} />
-        <ProductTemplate props={productArray[0]} />        
+        {currentItems.map((item) => {
+          return <ProductTemplate key={item.id} props={item} />;
+        })}
       </div>
-
-      <div className="gridPageControler"></div>
+      <div className="gridPageControler">
+        <div className="gridPagination">
+          {Array.from(Array(totalPages), (item, index) => {
+            return (
+              <button
+                className={`pageNumberBtn ${
+                  index + 1 === currentPage ? "active" : ""
+                }`}
+                key={index + 1}
+                onClick={() => handlePageClick(index + 1)}
+              >
+                {index + 1}
+              </button>
+            );
+          })}
+          <button
+            id="paginationNext"
+            onClick={() => handlePageClick(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
