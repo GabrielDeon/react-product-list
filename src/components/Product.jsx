@@ -1,7 +1,4 @@
 /* eslint-disable react/prop-types */
-import { height, width } from "@fortawesome/free-brands-svg-icons/fa42Group";
-import React from "react";
-import { ssrExportAllKey } from "vite/runtime";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShareNodes,
@@ -36,6 +33,7 @@ class productObject {
   }
 }
 
+//Array of products that simulates a DB
 const productArray = [
   new productObject(
     1,
@@ -359,17 +357,17 @@ const productArray = [
   ),
   new productObject(
     33,
-    "Respira",
-    "Outdoor bar table and stool",
-    "500.000",
+    "Ouroboros",
+    "Pool",
+    "520.025",
     "respiraImage",
-    0,
+    99,
     false,
-    ""
+    "♾️"
   ),
 ];
 
-// eslint-disable-next-line react/prop-types
+//Product Template that uses the Product class object
 function ProductTemplate({ props }) {
   let className = "productTag";
   let tagText = "";
@@ -427,4 +425,4 @@ function ProductTemplate({ props }) {
   );
 }
 
-export { ProductTemplate, productArray };
+export { ProductTemplate, productArray};

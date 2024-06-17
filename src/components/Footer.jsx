@@ -1,14 +1,11 @@
 import React from "react";
 
 function Footer() {
+  //Hooks
   const [email, setEmail] = React.useState("");
   const [emailStatus, setEmailStatus] = React.useState("");
 
-  function validateEmail($email) {
-    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    return reg.test($email);
-  }
-
+  //Handlers
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -22,6 +19,12 @@ function Footer() {
       setEmailStatus("error");
     }
   };
+
+  //Regexp function to validate email
+  function validateEmail($email) {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    return reg.test($email);
+  }  
 
   return (
     <div className="footer">
